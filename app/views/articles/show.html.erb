@@ -2,11 +2,16 @@
     <article>
       <h1>
         <%= @article.title %>
-        <i class="fas fa-pencil-alt"></i>
-        <i class="fas fa-trash-alt"></i>
+        <%= link_to edit_article_path do  %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to article_path(@article.id), method: :delete, data: { confirm: "Are you sure?"} do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
       </h1>
       <p><%= @article.content %></p>
     </article>
+    <div style="margin-top: 12px">
+    <%= link_to "Back to the list", articles_path %>
+  </div>
 </div>
-
-

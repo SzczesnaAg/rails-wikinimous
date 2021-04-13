@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     @article.save
 
     # no need for view
-    redirect_to article_apth(@article)
+    redirect_to article_path(@article)
   end
 
   def edit
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
 
     #no need for view
-    redirect_to article_apth(@article)
+    redirect_to article_path(@article)
   end
 
   def destroy
@@ -43,6 +43,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    pramas.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content)
   end
 end
